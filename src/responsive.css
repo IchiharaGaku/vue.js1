@@ -1,0 +1,412 @@
+@media screen and (max-width: 768px) {
+  * {
+    margin: 0;
+    width: 100%;
+  }
+  #hamburger.active span:nth-of-type(1) {
+    top: 20px;
+    transform: rotate(45deg);
+  }
+  #hamburger.active span:nth-of-type(2) {
+    opacity: 0;
+  }
+  #hamburger.active span:nth-of-type(3) {
+    top: 20px;
+    transform: rotate(-45deg);
+  }
+  #hamuburger,
+  .menu-content {
+    display: block;
+  }
+  .menu-content,
+  .menu-title {
+    margin: 40px, 20px;
+    font-size: 2.2rem;
+    color: #332930;
+    text-align: left;
+    font-weight: bold;
+  }
+  .menu-content {
+    margin-top: 150px;
+    width: calc(100% - 80px);
+    height: 100%;
+    text-align: center;
+    transition: 1.2s;
+    position: fixed;
+    top: 0;
+    right: calc(-100% - 80px);
+    background-color: #fff;
+    color: #332930;
+    opacity: 0.8;
+    box-shadow: -80px 0 rgba(39, 37, 24, 0.6) inset;
+    z-index: 100;
+  }
+
+  .menu-content li a {
+    color: #332930;
+    margin: 15px;
+    padding: 5px;
+    border-bottom: 0.5px solid #e5e2c6;
+    text-decoration: none;
+    display: block;
+  }
+  .menu-content li {
+    width: 100%;
+    text-align: left;
+  }
+  .menu-content.open {
+    right: 0;
+  }
+  #hamburger {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 100;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+  #hamburger span {
+    width: 35px;
+    height: 4px;
+    border-radius: 5px;
+    position: absolute;
+    left: 2px;
+    display: block;
+    background-color: #b576ad;
+    transition: 0.8s;
+  }
+  #hamburger span:nth-of-type(1) {
+    top: 10px;
+  }
+  #hamburger span:nth-of-type(2) {
+    top: 20px;
+  }
+  #hamburger span:nth-of-type(3) {
+    top: 30px;
+  }
+  header {
+    position: static;
+  }
+  .header-nav {
+    display: none;
+  }
+  .a {
+    margin-left: 0;
+  }
+  /* #top-btn {
+    background-color: #332930;
+    color: #e5e2c6;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    position: fixed;
+    font-size: 30px;
+    padding: auto 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+  } */
+  #eyecatch {
+    top: 0px;
+  }
+  .hairstyle {
+    margin: 0 auto;
+    position: static;
+  }
+  .square1 {
+    margin-top: 800px;
+    height: 300px;
+  }
+  .hair {
+    font-size: 50px;
+    padding: 10% 5%;
+  }
+  .hair.fadein {
+    opacity: 1;
+    left: 0;
+  }
+  .photo1,
+  .photo2 {
+    top: 0px;
+    left: 5%;
+  }
+
+  .column,
+  line,
+  .salon {
+    display: none;
+  }
+  .style-top,
+  .style-bottom {
+    overflow-wrap: break-word;
+    width: 50%;
+    bottom: 600px;
+  }
+  .style-bottom {
+    padding-top: 40px;
+  }
+  .top {
+    left: 60%;
+    bottom: 500px;
+  }
+  .main2 {
+    margin: 0 auto;
+    position: relative;
+    bottom: 400px;
+  }
+  .produ {
+    font-size: 80px;
+  }
+  .shampoo {
+    position: absolute;
+    top: 320px;
+    left: 560px;
+    width: 25%;
+    height: 25%;
+    z-index: 0;
+  }
+  .main3 {
+    height: 750px;
+  }
+  .sal {
+    left: 10%;
+    margin-top: 80px;
+  }
+  .third {
+    left: 40%;
+    bottom: 180px;
+  }
+  .text {
+    bottom: 400px;
+    left: 30%;
+    font-size: 30px;
+  }
+  .frame {
+    top: 450px;
+  }
+  .fontmodel {
+    font-size: 120px;
+    top: 0px;
+    left: 20px;
+  }
+  .model1 {
+    top: -290px;
+    height: 380px;
+  }
+
+  .model2 {
+    top: 40%;
+  }
+
+  .model3 {
+    height: 42%;
+    top: 39%;
+  }
+  .foot {
+    left: 60%;
+  }
+  .each {
+    padding: 100px 10%;
+  }
+  .menu,
+  .coupon,
+  .staff,
+  .sty {
+    text-align: center;
+  }
+
+  .lastsection {
+    margin: 0;
+    height: 100px;
+  }
+  .cake,
+  .woman,
+  .shop {
+    width: 220px;
+    height: 150px;
+  }
+  .last {
+    left: 35%;
+    top: 100px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header {
+    width: 100%;
+  }
+  .header-logo {
+    margin-left: 10px;
+    margin-right: 0px;
+  }
+  #eyecatch {
+    height: 400px;
+  }
+  .hair {
+    font-size: 30px;
+  }
+  .square1 {
+    width: 80%;
+    margin-top: 500px;
+  }
+  .style {
+    font-size: 70px;
+    left: -100%;
+    bottom: 650px;
+    transition: all 1s;
+  }
+  .style.stylein {
+    left: -2%;
+  }
+  .first {
+    font-size: 150px;
+  }
+  .photo1,
+  .photo2 {
+    top: -200px;
+  }
+  .style-top,
+  .style-bottom {
+    bottom: 650px;
+    opacity: 0;
+    transition: all 1s;
+  }
+  .fadeon {
+    opacity: 1;
+  }
+  .top {
+    left: 30%;
+    bottom: 600px;
+  }
+
+  .main2 {
+    margin: 0;
+  }
+  .product {
+    width: 100%;
+    height: 800px;
+  }
+  .produ {
+    font-size: 70px;
+    font-weight: bold;
+    left: 2%;
+  }
+  .second {
+    font-size: 150px;
+    left: 30%;
+    top: 10px;
+  }
+  .protop {
+    left: 0%;
+    top: 200px;
+    font-size: 18px;
+    opacity: 0;
+    transition: all 1s;
+  }
+  .fadeon {
+    opacity: 1;
+  }
+  .middle {
+    margin-left: 20px;
+  }
+  .shampoo {
+    display: none;
+  }
+  .store {
+    left: 10px;
+    width: 350px;
+  }
+  .online {
+    font-size: 25px;
+    padding-left: 5px;
+  }
+  .link {
+    padding-left: 140px;
+  }
+  .main3 {
+    width: 375px;
+  }
+  .sal {
+    left: 10px;
+    font-size: 70px;
+  }
+  .third {
+    font-size: 200px;
+    bottom: 160px;
+  }
+  .text {
+    left: 5%;
+  }
+  .frame {
+    width: 200px;
+    height: 150px;
+    left: -10%;
+  }
+  .model::before {
+    transform: rotate(3deg);
+    height: 600px;
+  }
+  .model::after {
+    height: 200px;
+  }
+  .fontmodel {
+    font-size: 40px;
+    top: -120px;
+  }
+  .model1 {
+    width: 55%;
+    height: 40%;
+    left: 220px;
+    top: -215px;
+  }
+  .model2 {
+    width: 50%;
+    top: 17%;
+    left: 10%;
+    height: 18%;
+  }
+  .model3 {
+    top: 14%;
+    left: 60%;
+    height: 18%;
+  }
+  .foot {
+    left: 5%;
+    top: 30px;
+  }
+
+  .menues {
+    bottom: 600px;
+    height: 1100px;
+  }
+  .each {
+    display: block;
+  }
+  .menu,
+  .coupon,
+  .staff,
+  .sty {
+    position: static;
+    margin-left: 0px;
+    margin-bottom: 10px;
+  }
+
+  .lastsection {
+    bottom: 700px;
+    height: 300px;
+  }
+  .articles {
+    display: block;
+  }
+  .article {
+    padding-left: 60px;
+  }
+  .last {
+    left: 18%;
+  }
+}
