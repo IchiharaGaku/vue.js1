@@ -2,7 +2,6 @@
   <div>
     <Header></Header>
     <router-view />
-    <Home></Home>
     <Footer></Footer>
     <Vue></Vue>
     <jQuery></jQuery>
@@ -13,8 +12,8 @@
 <script>
 import Header from "./views/Header.vue";
 import Footer from "./views/Footer.vue";
-import Home from "./views/Home.vue";
-import Vue from "./router/index.js";
+//import Home from "./views/Home.vue";
+//import Vue from "./router/index.js";
 import jQuery from "jquery";
 global.jquery = jQuery;
 global.$ = jQuery;
@@ -24,8 +23,8 @@ export default {
   components: {
     Header,
     Footer,
-    Home,
-    Vue,
+    //Home,
+    //Vue,
   },
 };
 </script>

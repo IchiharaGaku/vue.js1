@@ -8,98 +8,78 @@
       </div>
       <div id="eyecatch"></div>
       <transition name="navi">
-        <nav class="menu-content" v-show="navi">
+        <nav class="menu-content" :class="{ 'is-slidein': slidein }">
           <ul class="menu-content_inner">
             <li>
-              <a
-                href="#1"
-                @click="
-                  clickSmoothScroll;
-                  naviOpen;
-                "
-                :class="{ 'is-active': active }"
-                >Style</a
-              >
+              <a href="#one" @click="navHandler">Style</a>
+            </li>
+
+            <li>
+              <a href="#two" @click="navHandler;">Product</a>
+            </li>
+
+            <li>
+              <a href="#three" @click="navHandler;">Salon</a>
+            </li>
+
+            <li>
+              <a href="#five" @click="navHandler;">Model</a>
             </li>
             <li>
-              <a
-                href="#2"
-                @click="
-                  clickSmoothScroll;
-                  naviOpen;
-                "
-                :class="{ 'is-active': active }"
-                >Product</a
-              >
-            </li>
-            <li>
-              <a
-                href="#3"
-                @click="
-                  clickSmoothScroll;
-                  naviOpen;
-                "
-                :class="{ 'is-active': active }"
-                >Salon</a
-              >
-            </li>
-            <li>
-              <a
-                href="#5"
-                @click="
-                  clickSmoothScroll;
-                  naviOpen;
-                "
-                :class="{ 'is-active': active }"
-                >Model</a
-              >
-            </li>
-            <li>
-              <a
-                href="#4"
-                @click="
-                  clickSmoothScroll;
-                  naviOpen;
-                "
-                :class="{ 'is-active': active }"
-                >Blog</a
-              >
+              <a href="#four" @click="navHandler">Blog</a>
             </li>
           </ul>
         </nav>
       </transition>
     </div>
-
     <div class="hairstyle">
-      <div class="hair">
-        <h1>
-          Hairstyle inspired
-          <br />by fassion. <br />Hair produced <br />by Salon.
-        </h1>
-      </div>
+      <transition name="fadein">
+        <div class="hair" :class="{ fadein: scrollY > 200 }">
+          <h1>
+            Hairstyle inspired
+            <br />by fassion. <br />Hair produced <br />by Salon.
+          </h1>
+        </div>
+      </transition>
       <div class="square1">
         <img src="../assets/image/oma-ju2/ダウンロード.jpg" class="blond" />
       </div>
     </div>
 
-    <div class="main-wrap" id="1">
+    <div class="main-wrap" id="one">
       <div class="photo01">
-        <h1 class="wrap style">
-          STYLE
-          <span class="number first">01</span>
-        </h1>
-        <img src="../assets/image/oma-ju2/OIP (5).jpg" class="photo1 sample" />
-        <img src="../assets/image/oma-ju2/OIP (4).jpg" class="photo2 sample" />
+        <transition name="rightin">
+          <h1 class="wrap style" :class="{ rightin: scrollY > 500 }">
+            STYLE
+            <span class="number first">01</span>
+          </h1>
+        </transition>
+        <transition name="bottomin">
+          <img
+            src="../assets/image/oma-ju2/OIP (5).jpg"
+            class="photo1 sample"
+            :class="{ bottomin: scrollY > 700 }"
+        /></transition>
+        <transition name="bottomin"
+          ><img
+            src="../assets/image/oma-ju2/OIP (4).jpg"
+            class="photo2 sample"
+            :class="{ bottomin: scrollY > 800 }"
+        /></transition>
       </div>
       <div class="content">
-        <p class="style-top">
-          Salonでは髪質・骨格に合わせたカットに、
-          <br />ライフスタイルを掛け合わせ、リアルトレンドをご設定します。
-        </p>
-        <p class="style-bottom">
-          また、トレンドや髪質に合わせたセットの仕方、ドライヤー、
-          <br />アイロンの使い方など役立つ知識も提供しています。
-        </p>
+        <transition name="fadeon">
+          <p class="style-top" :class="{ fadeon: scrollY > 800 }">
+            Salonでは髪質・骨格に合わせたカットに、
+            <br />ライフスタイルを掛け合わせ、リアルトレンドをご設定します。
+          </p>
+        </transition>
+        <transition name="fadeon">
+          <p class="style-bottom" :class="{ fadeon: scrollY > 800 }">
+            また、トレンドや髪質に合わせたセットの仕方、ドライヤー、
+            <br />アイロンの使い方など役立つ知識も提供しています。
+          </p>
+        </transition>
       </div>
       <div class="read top">
         READ MORE
@@ -112,17 +92,21 @@
       </div>
     </div>
 
-    <div class="main2" id="2">
+    <div class="main2" id="two">
       <div class="product">
         <div class="container">
-          <h1 class="wrap produ">
-            PRODUCT
-            <span class="number second">02</span>
-          </h1>
-          <p class="protop">
-            Salonが目指したのは、性別、年代に関わらずすべて
-            <br />の人が安心して利用できるプロダクトです。
-          </p>
+          <transition name="produin">
+            <h1 class="wrap produ" :class="{ produin: scrollY > 1600 }">
+              PRODUCT
+              <span class="number second">02</span>
+            </h1>
+          </transition>
+          <transition name="fadeon">
+            <p class="protop" :class="{ fadeon: scrollY > 1300 }">
+              Salonが目指したのは、性別、年代に関わらずすべて
+              <br />の人が安心して利用できるプロダクトです。
+            </p>
+          </transition>
           <div class="read middle">
             READ MORE
             <span class="plus">+</span>
@@ -147,12 +131,14 @@
       />
     </div>
 
-    <div class="main3" id="3">
+    <div class="main3" id="three">
       <div class="salon-wrap">
-        <h1 class="wrap sal">
-          SALON
-          <span class="number third">03</span>
-        </h1>
+        <transition name="salin">
+          <h1 class="wrap sal" :class="{ salin: scrollY > 2300 }">
+            SALON
+            <span class="number third">03</span>
+          </h1>
+        </transition>
         <div class="text">
           <h2 class="hairmake">Hair make Salon</h2>
           <p class="kana">ヘアメイク サロン</p>
@@ -164,12 +150,19 @@
         </div>
         <div class="room">
           <div class="frame">
-            <img src="../assets/image/oma-ju2/OIP (8).jpg" class="room1" />
-            <img
-              src="../assets/image/oma-ju2/OIP (10).jpg"
-              class="room2"
-              id="5"
-            />
+            <transition name="room1in">
+              <img
+                src="../assets/image/oma-ju2/OIP (8).jpg"
+                class="room1"
+                :class="{ room1in: scrollY > 2500 }"
+            /></transition>
+            <transition name="room2in">
+              <img
+                src="../assets/image/oma-ju2/OIP (10).jpg"
+                class="room2"
+                :class="{ room2in: scrollY > 2800 }"
+                id="five"
+            /></transition>
           </div>
         </div>
         <div class="column line sub">
@@ -184,13 +177,25 @@
       <div class="model">
         <div class="model-inner">
           <div class="fontmodel">MODEL</div>
-          <img src="../assets/image/oma-ju2/OIP (2).jpg" class="model1" />
-          <div class="model-bottom">
-            <img src="../assets/image/oma-ju2/OIP (13).jpg" class="model2" />
+          <transition name="model1in">
             <img
-              src="../assets/image/oma-ju2/ダウンロード (1).jpg"
-              class="model3"
-            />
+              src="../assets/image/oma-ju2/OIP (2).jpg"
+              class="model1"
+              :class="{ model1in: scrollY > 3300 }"
+          /></transition>
+          <div class="model-bottom">
+            <transition name="model2in">
+              <img
+                src="../assets/image/oma-ju2/OIP (13).jpg"
+                class="model2"
+                :class="{ model2in: scrollY > 3500 }"
+            /></transition>
+            <transition name="model3in">
+              <img
+                src="../assets/image/oma-ju2/ダウンロード (1).jpg"
+                class="model3"
+                :class="{ model3in: scrollY > 3800 }"
+            /></transition>
           </div>
           <div class="read foot">
             READ MORE
@@ -217,67 +222,69 @@
       </div>
     </div>
 
-    <div class="lastsection" id="4">
+    <div class="lastsection" id="four">
       <h2 class="blog">BLOG</h2>
-      <div class="articles">
-        <div class="article">
-          <a href class="js-modal-open">
-            <img
-              src="../assets/image/oma-ju2/ダウンロード (2).jpg"
-              class="cake"
-            />
-            <p class="arttxt">
-              2019.03.08| プライベート
-              <br />祝っていただきました！
-            </p>
-          </a>
-          <div class="modal">
-            <div class="bigimg">
-              <img src alt />
-              <p></p>
+      <transition name="artin">
+        <div class="articles" :class="{ artin: scrollY > 4600 }">
+          <div class="article">
+            <a href class="js-modal-open">
+              <img
+                src="../assets/image/oma-ju2/ダウンロード (2).jpg"
+                class="cake"
+              />
+              <p class="arttxt">
+                2019.03.08| プライベート
+                <br />祝っていただきました！
+              </p>
+            </a>
+            <div class="modal">
+              <div class="bigimg">
+                <img src alt />
+                <p></p>
+              </div>
+              <p class="closebtn">
+                <a href>✖</a>
+              </p>
             </div>
-            <p class="closebtn">
-              <a href>✖</a>
-            </p>
+          </div>
+          <div class="article">
+            <a href class="js-modal-open">
+              <img src="../assets/image/oma-ju2/OIP (15).jpg" class="woman" />
+              <p class="arttxt">
+                2019.02.28| お知らせ
+                <br />ホームページをリニューアルしました！...
+              </p>
+            </a>
+            <div class="modal">
+              <div class="bigimg">
+                <img src alt />
+                <p></p>
+              </div>
+              <p class="closebtn">
+                <a href>✖</a>
+              </p>
+            </div>
+          </div>
+          <div class="article">
+            <a href class="js-modal-open">
+              <img src="../assets/image/oma-ju2/OIP (16).jpg" class="shop" />
+              <p class="arttxt">
+                2019.02.24| お知らせ
+                <br />青山支店が開店しました！
+              </p>
+            </a>
+            <div class="modal">
+              <div class="bigimg">
+                <img src alt />
+                <p></p>
+              </div>
+              <p class="closebtn">
+                <a href>✖</a>
+              </p>
+            </div>
           </div>
         </div>
-        <div class="article">
-          <a href class="js-modal-open">
-            <img src="../assets/image/oma-ju2/OIP (15).jpg" class="woman" />
-            <p class="arttxt">
-              2019.02.28| お知らせ
-              <br />ホームページをリニューアルしました！...
-            </p>
-          </a>
-          <div class="modal">
-            <div class="bigimg">
-              <img src alt />
-              <p></p>
-            </div>
-            <p class="closebtn">
-              <a href>✖</a>
-            </p>
-          </div>
-        </div>
-        <div class="article">
-          <a href class="js-modal-open">
-            <img src="../assets/image/oma-ju2/OIP (16).jpg" class="shop" />
-            <p class="arttxt">
-              2019.02.24| お知らせ
-              <br />青山支店が開店しました！
-            </p>
-          </a>
-          <div class="modal">
-            <div class="bigimg">
-              <img src alt />
-              <p></p>
-            </div>
-            <p class="closebtn">
-              <a href>✖</a>
-            </p>
-          </div>
-        </div>
-      </div>
+      </transition>
       <div class="read last">
         READ MORE
         <span class="plus">+</span>
@@ -293,21 +300,59 @@ export default {
   data() {
     return {
       active: false,
-      navi: false,
+      // navi: false,
+      slidein: false,
+      isfadein: true,
+      scrollY: 0,
     };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
     clickSmoothScroll() {
       event.preventDefault();
-      this.$SmoothScroll(document.querySelector("#1"), 700, null, null, "y"),
-        this.$SmoothScroll(document.querySelector("#2"), 700, null, null, "y"),
-        this.$SmoothScroll(document.querySelector("#3"), 700, null, null, "y"),
-        this.$SmoothScroll(document.querySelector("#4"), 700, null, null, "y"),
-        this.$SmoothScroll(document.querySelector("#5"), 700, null, null, "y");
+      this.$SmoothScroll(document.querySelector("#one"), 700, null, null, "y"),
+        this.$SmoothScroll(
+          document.querySelector("#two"),
+          700,
+          null,
+          null,
+          "y"
+        ),
+        this.$SmoothScroll(
+          document.querySelector("#three"),
+          700,
+          null,
+          null,
+          "y"
+        ),
+        this.$SmoothScroll(
+          document.querySelector("#four"),
+          700,
+          null,
+          null,
+          "y"
+        ),
+        this.$SmoothScroll(
+          document.querySelector("#five"),
+          700,
+          null,
+          null,
+          "y"
+        );
     },
     naviOpen: function() {
       this.active = !this.active;
-      this.navi = !this.navi;
+      // this.navi = !this.navi;
+      this.slidein = !this.slidein;
+    },
+    navHandler: function() {
+      this.clickSmoothScroll;
+      this.naviOpen;
+    },
+    handleScroll() {
+      this.scrollY = window.scrollY;
     },
   },
 };
@@ -322,23 +367,34 @@ export default {
   text-align: left;
   font-weight: bold;
 }
+/* .drawer {
+  position: fixed;
+} */
 .menu-content {
   margin-top: 150px;
   width: calc(100% - 80px);
-  height: 100%;
+  height: 80%;
   text-align: center;
-  position: fixed;
-  top: 0;
-  /* right: calc(-100% - 80px); */
+  bottom: 0px;
   background-color: #fff;
   color: #332930;
   opacity: 0.8;
   box-shadow: -80px 0 rgba(39, 37, 24, 0.6) inset;
   z-index: 100;
+  position: fixed;
+  left: -100%;
+  transition: 0.7s;
 }
-.menu-content-enter,
+.menu-content-inner {
+  height: 100%;
+}
+.menu-content.is-slidein {
+  left: 0;
+}
+/* .menu-content-enter,
 .menu-content-leave-to {
   opacity: 0.5;
+  transition: 0.8s;
 }
 .menu-content-enter-to,
 .menu-content-leave {
@@ -348,7 +404,7 @@ export default {
 .menu-content-leave-active {
   transition: 1.2s;
   opacity: 0.8;
-}
+} */
 
 .menu-content li a {
   color: #332930;
@@ -400,8 +456,8 @@ export default {
   opacity: 0;
 }
 .is-active span:nth-of-type(3) {
-  top: 20px;
   transform: rotate(-45deg);
+  top: 20px;
 }
 #eyecatch {
   background-image: url(../assets/image/oma-ju2/OIP.jpg);
@@ -631,6 +687,7 @@ export default {
   padding: 40px 0 0 20px;
   font-weight: bold;
   cursor: pointer;
+  position: relative;
 }
 .link {
   padding: 40px 0 0 220px;
@@ -666,7 +723,7 @@ export default {
   transition: all 1s;
 }
 .sal.salin {
-  left: 50%;
+  left: 40%;
 }
 .third {
   position: relative;
@@ -675,6 +732,7 @@ export default {
 }
 .text {
   position: absolute;
+  top: 300px;
   right: 20%;
 }
 .hairmake {
@@ -693,6 +751,7 @@ export default {
   border: 2px solid #000;
   margin-left: 150px;
   position: absolute;
+  top: 200px;
 }
 .room1,
 .room2 {
@@ -1000,6 +1059,7 @@ export default {
   .style {
     position: absolute;
     bottom: 500px;
+    left: 0%;
   }
   .photo1,
   .photo2 {
@@ -1041,12 +1101,15 @@ export default {
     height: 25%;
     z-index: 0;
   }
+  .store {
+    left: 10%;
+  }
   .main3 {
     height: 800px;
   }
   .sal {
-    left: 10%;
-    bottom: 400px;
+    left: -10%;
+    bottom: 290px;
     margin-top: 80px;
   }
   .third {
@@ -1054,12 +1117,12 @@ export default {
     bottom: 250px;
   }
   .text {
-    top: 140px;
+    top: 240px;
     left: 30%;
     font-size: 30px;
   }
   .frame {
-    top: 400px;
+    top: 500px;
   }
   .fontmodel {
     font-size: 120px;
@@ -1123,6 +1186,9 @@ export default {
   #eyecatch {
     height: 400px;
   }
+  .main-wrap {
+    height: 700px;
+  }
   .hair {
     font-size: 35px;
   }
@@ -1133,14 +1199,14 @@ export default {
   .style {
     font-size: 70px;
     left: -100%;
-    bottom: 450px;
+    bottom: 300px;
     transition: all 1s;
   }
   .style.stylein {
     left: -2%;
   }
   .first {
-    font-size: 150px;
+    font-size: 120px;
   }
   .photo1,
   .photo2 {
@@ -1151,6 +1217,7 @@ export default {
     bottom: 450px;
     opacity: 0;
     transition: all 1s;
+    font-size: 15px;
   }
   .fadeon {
     opacity: 1;
@@ -1212,6 +1279,7 @@ export default {
   .sal {
     left: 10px;
     font-size: 70px;
+    bottom: 370px;
   }
   .third {
     font-size: 200px;
@@ -1223,7 +1291,8 @@ export default {
   .frame {
     width: 200px;
     height: 150px;
-    left: -10%;
+    left: -20%;
+    top: 500px;
   }
   .model {
     height: 500px;
@@ -1244,17 +1313,20 @@ export default {
     height: 30%;
     left: 220px;
     top: 0px;
+    opacity: 1;
   }
   .model2 {
     width: 50%;
     top: 33%;
     left: 10%;
     height: 30%;
+    opacity: 1;
   }
   .model3 {
     top: 30%;
     left: 60%;
     height: 30%;
+    opacity: 1;
   }
   .foot {
     left: 5%;
@@ -1263,7 +1335,7 @@ export default {
 
   .menues {
     bottom: 600px;
-    height: 1100px;
+    height: 1200px;
   }
   .each {
     display: block;
@@ -1275,17 +1347,21 @@ export default {
     position: static;
     margin-left: 0px;
     margin-bottom: 10px;
+    margin-top: 50px;
   }
 
   .lastsection {
     bottom: 700px;
+    padding-top: 300px;
     height: 200px;
   }
   .articles {
+    margin-top: 20px;
     display: block;
   }
   .article {
     padding-left: 60px;
+    margin-top: 20px;
   }
   .last {
     left: 18%;

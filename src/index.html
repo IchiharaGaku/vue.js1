@@ -213,6 +213,19 @@
         <p class="coltd">@2020 xxxxxxx.co.Ltd</p>
       </div>
     </footer>
+    <div id="hamburger" @click="naviOpen" :class="{'is-active': active}"></div>
+    <transition name="navi">
+      <nav class="menu-content" v-show="navi">
+        data: function() {
+          return {
+            active: false,
+            navi: false
+          };
+        },
+        naviOpen: function() {
+          this.active = !this.active;
+          this.navi = !this.navi;
+        }
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="js/main.js" type="text/javascript"></script>
   </body>
