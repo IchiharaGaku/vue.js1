@@ -4,6 +4,10 @@ import Home from "../views/Home.vue";
 import smoothscroll from "vue-smoothscroll";
 Vue.use(smoothscroll);
 Vue.use(VueRouter);
+import jQuery from "jquery";
+global.jquery = jQuery;
+global.$ = jQuery;
+window.$ = window.jQuery = require("jquery");
 
 const routes = [
   {
@@ -27,5 +31,4 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
-
 export default router;

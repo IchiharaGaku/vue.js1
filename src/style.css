@@ -347,8 +347,8 @@ header.transform {
   color: #332930;
 }
 .style {
-  position: relative;
-  bottom: 800px;
+  position: absolute;
+  bottom: 700px;
   left: 100%;
   transition: all 1s;
 }
@@ -526,15 +526,16 @@ header.transform {
 .main3 {
   margin: 0 auto;
   position: relative;
-  top: -400px;
+  top: -300px;
 }
 .sal {
-  position: relative;
+  position: absolute;
   left: 100%;
+  bottom: 200px;
   transition: all 1s;
 }
 .sal.salin {
-  left: 40%;
+  left: 50%;
 }
 .third {
   position: relative;
@@ -544,6 +545,7 @@ header.transform {
 .text {
   position: absolute;
   right: 20%;
+  top: 200px;
 }
 .hairmake {
   font-size: 30px;
@@ -607,6 +609,7 @@ header.transform {
   margin: 10px 0;
   padding: 80px 0;
   top: -400px;
+  height: 1000px;
 }
 .model::before {
   content: "";
@@ -654,7 +657,7 @@ header.transform {
 .model1,
 .model2,
 .model3 {
-  position: relative;
+  position: absolute;
   overflow: hidden;
   top: -300px;
   box-shadow: none;
@@ -672,9 +675,9 @@ header.transform {
 }
 .model1 {
   width: 60%;
-  height: 60%;
-  position: relative;
-  top: -320px;
+  height: 50%;
+  position: absolute;
+  top: 10px;
   left: 100%;
   opacity: 0;
   transition: all 0.8s;
@@ -712,7 +715,7 @@ header.transform {
 }
 .foot {
   position: relative;
-  top: 200px;
+  top: 750px;
   left: 75%;
 }
 

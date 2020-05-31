@@ -1,33 +1,80 @@
 <template>
   <div>
-    <div id="eyecatch"></div>
-    <nav class="menu-content">
-      <ul class="menu-content_inner">
-        <li>
-          <a href="#1" @click="clickSmoothScroll">Style</a>
-        </li>
-        <li>
-          <a href="#2" @click="clickSmoothScroll">Product</a>
-        </li>
-        <li>
-          <a href="#3" @click="clickSmoothScroll">Salon</a>
-        </li>
-        <li>
-          <a href="#5" @click="clickSmoothScroll">Model</a>
-        </li>
-        <li>
-          <a href="#4" @click="clickSmoothScroll">Blog</a>
-        </li>
-      </ul>
-    </nav>
+    <div id="app">
+      <div id="hamburger" @click="naviOpen" :class="{ 'is-active': active }">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="eyecatch"></div>
+      <transition name="navi">
+        <nav class="menu-content" v-show="navi">
+          <ul class="menu-content_inner">
+            <li>
+              <a
+                href="#1"
+                @click="
+                  clickSmoothScroll;
+                  naviOpen;
+                "
+                :class="{ 'is-active': active }"
+                >Style</a
+              >
+            </li>
+            <li>
+              <a
+                href="#2"
+                @click="
+                  clickSmoothScroll;
+                  naviOpen;
+                "
+                :class="{ 'is-active': active }"
+                >Product</a
+              >
+            </li>
+            <li>
+              <a
+                href="#3"
+                @click="
+                  clickSmoothScroll;
+                  naviOpen;
+                "
+                :class="{ 'is-active': active }"
+                >Salon</a
+              >
+            </li>
+            <li>
+              <a
+                href="#5"
+                @click="
+                  clickSmoothScroll;
+                  naviOpen;
+                "
+                :class="{ 'is-active': active }"
+                >Model</a
+              >
+            </li>
+            <li>
+              <a
+                href="#4"
+                @click="
+                  clickSmoothScroll;
+                  naviOpen;
+                "
+                :class="{ 'is-active': active }"
+                >Blog</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </transition>
+    </div>
 
     <div class="hairstyle">
       <div class="hair">
         <h1>
           Hairstyle inspired
-          <br />by fassion.
-          <br />Hair produced
-          <br />by Salon.
+          <br />by fassion. <br />Hair produced <br />by Salon.
         </h1>
       </div>
       <div class="square1">
@@ -37,14 +84,14 @@
 
     <div class="main-wrap" id="1">
       <div class="photo01">
-        <img src="../assets/image/oma-ju2/OIP (5).jpg" class="photo1 sample" />
-        <img src="../assets/image/oma-ju2/OIP (4).jpg" class="photo2 sample" />
-      </div>
-      <div class="content">
         <h1 class="wrap style">
           STYLE
           <span class="number first">01</span>
         </h1>
+        <img src="../assets/image/oma-ju2/OIP (5).jpg" class="photo1 sample" />
+        <img src="../assets/image/oma-ju2/OIP (4).jpg" class="photo2 sample" />
+      </div>
+      <div class="content">
         <p class="style-top">
           Salonでは髪質・骨格に合わせたカットに、
           <br />ライフスタイルを掛け合わせ、リアルトレンドをご設定します。
@@ -94,7 +141,10 @@
           </div>
         </div>
       </div>
-      <img src="../assets/image/oma-ju2/9870695814_6b361f2826_z-1.jpg" class="shampoo" />
+      <img
+        src="../assets/image/oma-ju2/9870695814_6b361f2826_z-1.jpg"
+        class="shampoo"
+      />
     </div>
 
     <div class="main3" id="3">
@@ -115,7 +165,11 @@
         <div class="room">
           <div class="frame">
             <img src="../assets/image/oma-ju2/OIP (8).jpg" class="room1" />
-            <img src="../assets/image/oma-ju2/OIP (10).jpg" class="room2" id="5" />
+            <img
+              src="../assets/image/oma-ju2/OIP (10).jpg"
+              class="room2"
+              id="5"
+            />
           </div>
         </div>
         <div class="column line sub">
@@ -133,7 +187,10 @@
           <img src="../assets/image/oma-ju2/OIP (2).jpg" class="model1" />
           <div class="model-bottom">
             <img src="../assets/image/oma-ju2/OIP (13).jpg" class="model2" />
-            <img src="../assets/image/oma-ju2/ダウンロード (1).jpg" class="model3" />
+            <img
+              src="../assets/image/oma-ju2/ダウンロード (1).jpg"
+              class="model3"
+            />
           </div>
           <div class="read foot">
             READ MORE
@@ -165,7 +222,10 @@
       <div class="articles">
         <div class="article">
           <a href class="js-modal-open">
-            <img src="../assets/image/oma-ju2/ダウンロード (2).jpg" class="cake" />
+            <img
+              src="../assets/image/oma-ju2/ダウンロード (2).jpg"
+              class="cake"
+            />
             <p class="arttxt">
               2019.03.08| プライベート
               <br />祝っていただきました！
@@ -228,21 +288,121 @@
 
 <script>
 // @ is an alias to /src
+
 export default {
+  data() {
+    return {
+      active: false,
+      navi: false,
+    };
+  },
   methods: {
     clickSmoothScroll() {
       event.preventDefault();
       this.$SmoothScroll(document.querySelector("#1"), 700, null, null, "y"),
         this.$SmoothScroll(document.querySelector("#2"), 700, null, null, "y"),
         this.$SmoothScroll(document.querySelector("#3"), 700, null, null, "y"),
-        this.$SmoothScroll(document.querySelector("#4"), 7000, null, null, "y"),
+        this.$SmoothScroll(document.querySelector("#4"), 700, null, null, "y"),
         this.$SmoothScroll(document.querySelector("#5"), 700, null, null, "y");
-    }
-  }
+    },
+    naviOpen: function() {
+      this.active = !this.active;
+      this.navi = !this.navi;
+    },
+  },
 };
 </script>
 
 <style scoped>
+.menu-content,
+.menu-title {
+  margin: 40px, 20px;
+  font-size: 2.2rem;
+  color: #332930;
+  text-align: left;
+  font-weight: bold;
+}
+.menu-content {
+  margin-top: 150px;
+  width: calc(100% - 80px);
+  height: 100%;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  /* right: calc(-100% - 80px); */
+  background-color: #fff;
+  color: #332930;
+  opacity: 0.8;
+  box-shadow: -80px 0 rgba(39, 37, 24, 0.6) inset;
+  z-index: 100;
+}
+.menu-content-enter,
+.menu-content-leave-to {
+  opacity: 0.5;
+}
+.menu-content-enter-to,
+.menu-content-leave {
+  opacity: 1;
+}
+.menu-content-enter-active,
+.menu-content-leave-active {
+  transition: 1.2s;
+  opacity: 0.8;
+}
+
+.menu-content li a {
+  color: #332930;
+  margin: 15px;
+  padding: 5px;
+  border-bottom: 0.5px solid #e5e2c6;
+  text-decoration: none;
+  display: block;
+}
+.menu-content li {
+  width: 100%;
+  text-align: left;
+}
+
+#hamburger {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 100;
+  cursor: pointer;
+  transition: 0.4s;
+}
+#hamburger span {
+  width: 35px;
+  height: 4px;
+  border-radius: 5px;
+  position: absolute;
+  left: 2px;
+  display: block;
+  background-color: #b576ad;
+  transition: 0.8s;
+}
+#hamburger span:nth-of-type(1) {
+  top: 10px;
+}
+#hamburger span:nth-of-type(2) {
+  top: 20px;
+}
+#hamburger span:nth-of-type(3) {
+  top: 30px;
+}
+.is-active span:nth-of-type(1) {
+  top: 20px;
+  transform: rotate(45deg);
+}
+.is-active span:nth-of-type(2) {
+  opacity: 0;
+}
+.is-active span:nth-of-type(3) {
+  top: 20px;
+  transform: rotate(-45deg);
+}
 #eyecatch {
   background-image: url(../assets/image/oma-ju2/OIP.jpg);
   background-size: cover;
@@ -250,9 +410,6 @@ export default {
   height: 600px;
   position: relative;
   top: 100px;
-}
-.menu-content {
-  display: none;
 }
 
 .hairstyle {
@@ -321,8 +478,8 @@ export default {
   color: #332930;
 }
 .style {
-  position: relative;
-  bottom: 800px;
+  position: absolute;
+  bottom: 700px;
   left: 100%;
   transition: all 1s;
 }
@@ -488,15 +645,14 @@ export default {
   box-shadow: none;
 }
 .pro {
+  margin-left: 10px;
   padding: 30px 0;
   width: 10px;
   height: 30px;
   position: relative;
-  bottom: 230px;
-  left: 20px;
+  bottom: 250px;
   box-shadow: none;
   height: 40px;
-  transform: rotate(-90deg);
 }
 .main3 {
   margin: 0 auto;
@@ -504,12 +660,13 @@ export default {
   top: -400px;
 }
 .sal {
-  position: relative;
+  position: absolute;
   left: 100%;
+  bottom: 200px;
   transition: all 1s;
 }
 .sal.salin {
-  left: 40%;
+  left: 50%;
 }
 .third {
   position: relative;
@@ -582,6 +739,7 @@ export default {
   margin: 10px 0;
   padding: 80px 0;
   top: -400px;
+  height: 1000px;
 }
 .model::before {
   content: "";
@@ -629,7 +787,7 @@ export default {
 .model1,
 .model2,
 .model3 {
-  position: relative;
+  position: absolute;
   overflow: hidden;
   top: -300px;
   box-shadow: none;
@@ -647,9 +805,9 @@ export default {
 }
 .model1 {
   width: 60%;
-  height: 60%;
-  position: relative;
-  top: -320px;
+  height: 50%;
+  position: absolute;
+  top: 10px;
   left: 100%;
   opacity: 0;
   transition: all 0.8s;
@@ -687,10 +845,9 @@ export default {
 }
 .foot {
   position: relative;
-  top: 200px;
+  top: 750px;
   left: 75%;
 }
-
 .menues {
   position: relative;
   bottom: 410px;
@@ -829,7 +986,7 @@ export default {
     position: static;
   }
   .square1 {
-    margin-top: 800px;
+    margin-top: 700px;
     height: 300px;
   }
   .hair {
@@ -840,9 +997,13 @@ export default {
     opacity: 1;
     left: 0;
   }
+  .style {
+    position: absolute;
+    bottom: 500px;
+  }
   .photo1,
   .photo2 {
-    top: 0px;
+    top: -50px;
     left: 5%;
   }
 
@@ -855,14 +1016,14 @@ export default {
   .style-bottom {
     overflow-wrap: break-word;
     width: 50%;
-    bottom: 600px;
+    bottom: 500px;
   }
   .style-bottom {
     padding-top: 40px;
   }
   .top {
     left: 60%;
-    bottom: 500px;
+    bottom: 300px;
   }
   .main2 {
     margin: 0 auto;
@@ -881,31 +1042,35 @@ export default {
     z-index: 0;
   }
   .main3 {
-    height: 750px;
+    height: 800px;
   }
   .sal {
     left: 10%;
+    bottom: 400px;
     margin-top: 80px;
   }
   .third {
     left: 40%;
-    bottom: 180px;
+    bottom: 250px;
   }
   .text {
-    bottom: 400px;
+    top: 140px;
     left: 30%;
     font-size: 30px;
   }
   .frame {
-    top: 450px;
+    top: 400px;
   }
   .fontmodel {
     font-size: 120px;
     top: 0px;
     left: 20px;
   }
+  .model {
+    height: 700px;
+  }
   .model1 {
-    top: -290px;
+    top: 0px;
     height: 380px;
   }
 
@@ -919,6 +1084,7 @@ export default {
   }
   .foot {
     left: 60%;
+    top: 500px;
   }
   .each {
     padding: 100px 10%;
@@ -958,7 +1124,7 @@ export default {
     height: 400px;
   }
   .hair {
-    font-size: 30px;
+    font-size: 35px;
   }
   .square1 {
     width: 80%;
@@ -967,7 +1133,7 @@ export default {
   .style {
     font-size: 70px;
     left: -100%;
-    bottom: 650px;
+    bottom: 450px;
     transition: all 1s;
   }
   .style.stylein {
@@ -982,7 +1148,7 @@ export default {
   }
   .style-top,
   .style-bottom {
-    bottom: 650px;
+    bottom: 450px;
     opacity: 0;
     transition: all 1s;
   }
@@ -991,7 +1157,7 @@ export default {
   }
   .top {
     left: 30%;
-    bottom: 600px;
+    bottom: 400px;
   }
 
   .main2 {
@@ -999,7 +1165,7 @@ export default {
   }
   .product {
     width: 100%;
-    height: 800px;
+    height: 700px;
   }
   .produ {
     font-size: 70px;
@@ -1009,7 +1175,7 @@ export default {
   .second {
     font-size: 150px;
     left: 30%;
-    top: 10px;
+    top: -10px;
   }
   .protop {
     left: 0%;
@@ -1023,6 +1189,7 @@ export default {
   }
   .middle {
     margin-left: 20px;
+    top: 200px;
   }
   .shampoo {
     display: none;
@@ -1030,6 +1197,7 @@ export default {
   .store {
     left: 10px;
     width: 350px;
+    top: 200px;
   }
   .online {
     font-size: 25px;
@@ -1057,37 +1225,40 @@ export default {
     height: 150px;
     left: -10%;
   }
+  .model {
+    height: 500px;
+  }
   .model::before {
     transform: rotate(3deg);
     height: 600px;
   }
   .model::after {
-    height: 200px;
+    height: 400px;
   }
   .fontmodel {
     font-size: 40px;
-    top: -120px;
+    top: -60px;
   }
   .model1 {
     width: 55%;
-    height: 40%;
+    height: 30%;
     left: 220px;
-    top: -215px;
+    top: 0px;
   }
   .model2 {
     width: 50%;
-    top: 17%;
+    top: 33%;
     left: 10%;
-    height: 18%;
+    height: 30%;
   }
   .model3 {
-    top: 14%;
+    top: 30%;
     left: 60%;
-    height: 18%;
+    height: 30%;
   }
   .foot {
     left: 5%;
-    top: 30px;
+    top: 250px;
   }
 
   .menues {
@@ -1108,7 +1279,7 @@ export default {
 
   .lastsection {
     bottom: 700px;
-    height: 300px;
+    height: 200px;
   }
   .articles {
     display: block;

@@ -1,40 +1,37 @@
 <template>
-  <header id="top">
-    <div class="flex between">
-      <h1 class="header-logo">Salon</h1>
-      <nav class="header-nav">
-        <ul>
-          <li class="a">
-            <a href="#1" @click="clickSmoothScroll">Style</a>
-          </li>
-          <li>
-            <a href="#2" @click="clickSmoothScroll">Product</a>
-          </li>
-          <li>
-            <a href="#3" @click="clickSmoothScroll">Salon</a>
-          </li>
-          <li>
-            <a href="#4" @click="clickSmoothScroll">Blog</a>
-          </li>
-        </ul>
-      </nav>
-      <div id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+  <div>
+    <div id="head"></div>
+    <header>
+      <div class="flex between">
+        <h1 class="header-logo">Salon</h1>
+        <nav class="header-nav">
+          <ul>
+            <li class="a">
+              <a href="#1" @click="clickSmoothScroll">Style</a>
+            </li>
+            <li>
+              <a href="#2" @click="clickSmoothScroll">Product</a>
+            </li>
+            <li>
+              <a href="#3" @click="clickSmoothScroll">Salon</a>
+            </li>
+            <li>
+              <a href="#4" @click="clickSmoothScroll">Blog</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </div>
-    <div id="top-btn" @click="clickTopScroll">↑</div>
-  </header>
+      <div id="top-btn" @click="clickTopScroll">↑</div>
+    </header>
+  </div>
 </template>
 
 <script>
 export default {
   methods: {
     clickTopScroll() {
-      debugger;
       event.preventDefault();
-      this.$SmoothScroll(document.querySelector("#top"), 700, null, null, "y");
+      this.$SmoothScroll(document.querySelector("#head"), 700, null, null, "y");
     },
     clickSmoothScroll() {
       event.preventDefault();
@@ -112,89 +109,7 @@ header.transform {
     margin: 0;
     width: 100%;
   }
-  #hamburger.active span:nth-of-type(1) {
-    top: 20px;
-    transform: rotate(45deg);
-  }
-  #hamburger.active span:nth-of-type(2) {
-    opacity: 0;
-  }
-  #hamburger.active span:nth-of-type(3) {
-    top: 20px;
-    transform: rotate(-45deg);
-  }
-  #hamuburger,
-  .menu-content {
-    display: block;
-  }
-  .menu-content,
-  .menu-title {
-    margin: 40px, 20px;
-    font-size: 2.2rem;
-    color: #332930;
-    text-align: left;
-    font-weight: bold;
-  }
-  .menu-content {
-    margin-top: 150px;
-    width: calc(100% - 80px);
-    height: 100%;
-    text-align: center;
-    transition: 1.2s;
-    position: fixed;
-    top: 0;
-    right: calc(-100% - 80px);
-    background-color: #fff;
-    color: #332930;
-    opacity: 0.8;
-    box-shadow: -80px 0 rgba(39, 37, 24, 0.6) inset;
-    z-index: 100;
-  }
 
-  .menu-content li a {
-    color: #332930;
-    margin: 15px;
-    padding: 5px;
-    border-bottom: 0.5px solid #e5e2c6;
-    text-decoration: none;
-    display: block;
-  }
-  .menu-content li {
-    width: 100%;
-    text-align: left;
-  }
-  .menu-content.open {
-    right: 0;
-  }
-  #hamburger {
-    width: 40px;
-    height: 40px;
-    position: fixed;
-    top: 15px;
-    right: 20px;
-    z-index: 100;
-    cursor: pointer;
-    transition: 0.4s;
-  }
-  #hamburger span {
-    width: 35px;
-    height: 4px;
-    border-radius: 5px;
-    position: absolute;
-    left: 2px;
-    display: block;
-    background-color: #b576ad;
-    transition: 0.8s;
-  }
-  #hamburger span:nth-of-type(1) {
-    top: 10px;
-  }
-  #hamburger span:nth-of-type(2) {
-    top: 20px;
-  }
-  #hamburger span:nth-of-type(3) {
-    top: 30px;
-  }
   header {
     position: static;
   }
