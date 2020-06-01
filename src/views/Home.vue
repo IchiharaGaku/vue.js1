@@ -186,12 +186,12 @@
           <p>STAFF</p>
         </div>
         <div class="sty">
-          <p>STYLE</p>
+          <p id="four">STYLE</p>
         </div>
       </div>
     </div>
 
-    <div class="lastsection" id="four">
+    <div class="lastsection">
       <h2 class="blog">BLOG</h2>
       <transition name="artin">
         <div class="articles" :class="{ artin: scrollY > 4600 }">

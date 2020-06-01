@@ -105,7 +105,7 @@ export default {
       this.slidein = !this.slidein;
     },
     navHandler: function() {
-      this.clickSmoothScroll();
+      // this.clickSmoothScroll();
       this.naviOpen();
     },
   },
