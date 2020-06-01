@@ -31,15 +31,15 @@
               </li>
 
               <li>
-                <a href="#two" @click="navHandler;">Product</a>
+                <a href="#two" @click="navHandler">Product</a>
               </li>
 
               <li>
-                <a href="#three" @click="navHandler;">Salon</a>
+                <a href="#three" @click="navHandler">Salon</a>
               </li>
 
               <li>
-                <a href="#five" @click="navHandler;">Model</a>
+                <a href="#five" @click="navHandler">Model</a>
               </li>
               <li>
                 <a href="#four" @click="navHandler">Blog</a>
@@ -105,8 +105,8 @@ export default {
       this.slidein = !this.slidein;
     },
     navHandler: function() {
-      this.clickSmoothScroll;
-      this.naviOpen;
+      this.clickSmoothScroll();
+      this.naviOpen();
     },
   },
 };
