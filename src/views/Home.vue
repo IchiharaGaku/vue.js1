@@ -1,37 +1,6 @@
 <template>
   <div>
-    <div id="app">
-      <div id="hamburger" @click="naviOpen" :class="{ 'is-active': active }">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div id="eyecatch"></div>
-      <transition name="navi">
-        <nav class="menu-content" :class="{ 'is-slidein': slidein }">
-          <ul class="menu-content_inner">
-            <li>
-              <a href="#one" @click="navHandler">Style</a>
-            </li>
-
-            <li>
-              <a href="#two" @click="navHandler;">Product</a>
-            </li>
-
-            <li>
-              <a href="#three" @click="navHandler;">Salon</a>
-            </li>
-
-            <li>
-              <a href="#five" @click="navHandler;">Model</a>
-            </li>
-            <li>
-              <a href="#four" @click="navHandler">Blog</a>
-            </li>
-          </ul>
-        </nav>
-      </transition>
-    </div>
+    <div id="eyecatch"></div>
     <div class="hairstyle">
       <transition name="fadein">
         <div class="hair" :class="{ fadein: scrollY > 200 }">
@@ -227,26 +196,29 @@
       <transition name="artin">
         <div class="articles" :class="{ artin: scrollY > 4600 }">
           <div class="article">
-            <a href class="js-modal-open">
-              <img
-                src="../assets/image/oma-ju2/ダウンロード (2).jpg"
-                class="cake"
-              />
-              <p class="arttxt">
-                2019.03.08| プライベート
-                <br />祝っていただきました！
-              </p>
-            </a>
-            <div class="modal">
-              <div class="bigimg">
-                <img src alt />
-                <p></p>
-              </div>
-              <p class="closebtn">
-                <a href>✖</a>
-              </p>
+            <div>
+              <a href class="js-modal-open">
+                <img
+                  src="../assets/image/oma-ju2/ダウンロード (2).jpg"
+                  class="cake"
+                />
+                <p class="arttxt">
+                  2019.03.08| プライベート
+                  <br />祝っていただきました！
+                </p>
+              </a>
             </div>
           </div>
+          <div class="modal">
+            <div class="bigimg">
+              <img src alt />
+              <p></p>
+            </div>
+            <p class="closebtn">
+              <a href>✖</a>
+            </p>
+          </div>
+
           <div class="article">
             <a href class="js-modal-open">
               <img src="../assets/image/oma-ju2/OIP (15).jpg" class="woman" />
@@ -295,13 +267,9 @@
 
 <script>
 // @ is an alias to /src
-
 export default {
   data() {
     return {
-      active: false,
-      // navi: false,
-      slidein: false,
       isfadein: true,
       scrollY: 0,
     };
@@ -310,47 +278,6 @@ export default {
     window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
-    clickSmoothScroll() {
-      event.preventDefault();
-      this.$SmoothScroll(document.querySelector("#one"), 700, null, null, "y"),
-        this.$SmoothScroll(
-          document.querySelector("#two"),
-          700,
-          null,
-          null,
-          "y"
-        ),
-        this.$SmoothScroll(
-          document.querySelector("#three"),
-          700,
-          null,
-          null,
-          "y"
-        ),
-        this.$SmoothScroll(
-          document.querySelector("#four"),
-          700,
-          null,
-          null,
-          "y"
-        ),
-        this.$SmoothScroll(
-          document.querySelector("#five"),
-          700,
-          null,
-          null,
-          "y"
-        );
-    },
-    naviOpen: function() {
-      this.active = !this.active;
-      // this.navi = !this.navi;
-      this.slidein = !this.slidein;
-    },
-    navHandler: function() {
-      this.clickSmoothScroll;
-      this.naviOpen;
-    },
     handleScroll() {
       this.scrollY = window.scrollY;
     },
@@ -359,106 +286,6 @@ export default {
 </script>
 
 <style scoped>
-.menu-content,
-.menu-title {
-  margin: 40px, 20px;
-  font-size: 2.2rem;
-  color: #332930;
-  text-align: left;
-  font-weight: bold;
-}
-/* .drawer {
-  position: fixed;
-} */
-.menu-content {
-  margin-top: 150px;
-  width: calc(100% - 80px);
-  height: 80%;
-  text-align: center;
-  bottom: 0px;
-  background-color: #fff;
-  color: #332930;
-  opacity: 0.8;
-  box-shadow: -80px 0 rgba(39, 37, 24, 0.6) inset;
-  z-index: 100;
-  position: fixed;
-  left: -100%;
-  transition: 0.7s;
-}
-.menu-content-inner {
-  height: 100%;
-}
-.menu-content.is-slidein {
-  left: 0;
-}
-/* .menu-content-enter,
-.menu-content-leave-to {
-  opacity: 0.5;
-  transition: 0.8s;
-}
-.menu-content-enter-to,
-.menu-content-leave {
-  opacity: 1;
-}
-.menu-content-enter-active,
-.menu-content-leave-active {
-  transition: 1.2s;
-  opacity: 0.8;
-} */
-
-.menu-content li a {
-  color: #332930;
-  margin: 15px;
-  padding: 5px;
-  border-bottom: 0.5px solid #e5e2c6;
-  text-decoration: none;
-  display: block;
-}
-.menu-content li {
-  width: 100%;
-  text-align: left;
-}
-
-#hamburger {
-  width: 40px;
-  height: 40px;
-  position: fixed;
-  top: 15px;
-  right: 20px;
-  z-index: 100;
-  cursor: pointer;
-  transition: 0.4s;
-}
-#hamburger span {
-  width: 35px;
-  height: 4px;
-  border-radius: 5px;
-  position: absolute;
-  left: 2px;
-  display: block;
-  background-color: #b576ad;
-  transition: 0.8s;
-}
-#hamburger span:nth-of-type(1) {
-  top: 10px;
-}
-#hamburger span:nth-of-type(2) {
-  top: 20px;
-}
-#hamburger span:nth-of-type(3) {
-  top: 30px;
-}
-.is-active span:nth-of-type(1) {
-  top: 20px;
-  transform: rotate(45deg);
-}
-.is-active span:nth-of-type(2) {
-  opacity: 0;
-}
-.is-active span:nth-of-type(3) {
-  transform: rotate(-45deg);
-  top: 20px;
-}
 #eyecatch {
   background-image: url(../assets/image/oma-ju2/OIP.jpg);
   background-size: cover;
@@ -995,6 +822,7 @@ export default {
   text-decoration: none;
   color: #332920;
 }
+
 .modal {
   position: fixed;
   top: 0;

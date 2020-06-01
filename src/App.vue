@@ -6,6 +6,7 @@
     <Vue></Vue>
     <jQuery></jQuery>
     <jquery></jquery>
+    <Modal></Modal>
   </div>
 </template>
 
